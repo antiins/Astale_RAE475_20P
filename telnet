@@ -1,0 +1,122 @@
+<pre>sudo apt install telnet
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+telnet is already the newest version (0.17-41).
+telnet set to manually installed.
+The following packages were automatically installed and are no longer required:
+  efibootmgr libfwup1 libwayland-egl1-mesa
+Use &apos;sudo apt autoremove&apos; to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+</pre>
+
+<pre>sudo apt-get install telnetd -y
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  efibootmgr libfwup1 libwayland-egl1-mesa
+Use &apos;sudo apt autoremove&apos; to remove them.
+The following additional packages will be installed:
+  openbsd-inetd tcpd
+The following NEW packages will be installed:
+  openbsd-inetd tcpd telnetd
+0 upgraded, 3 newly installed, 0 to remove and 2 not upgraded.
+Need to get 89,8 kB of archives.
+After this operation, 294 kB of additional disk space will be used.
+Get:1 http://lv.archive.ubuntu.com/ubuntu bionic/universe amd64 tcpd amd64 7.6.q-27 [24,2 kB]
+Get:2 http://lv.archive.ubuntu.com/ubuntu bionic/universe amd64 openbsd-inetd amd64 0.20160825-3 [26,3 kB]
+Get:3 http://lv.archive.ubuntu.com/ubuntu bionic/universe amd64 telnetd amd64 0.17-41 [39,3 kB]
+Fetched 89,8 kB in 0s (394 kB/s)   
+Selecting previously unselected package tcpd.
+(Reading database ... 170472 files and directories currently installed.)
+Preparing to unpack .../tcpd_7.6.q-27_amd64.deb ...
+Unpacking tcpd (7.6.q-27) ...
+Selecting previously unselected package openbsd-inetd.
+Preparing to unpack .../openbsd-inetd_0.20160825-3_amd64.deb ...
+Unpacking openbsd-inetd (0.20160825-3) ...
+Selecting previously unselected package telnetd.
+Preparing to unpack .../telnetd_0.17-41_amd64.deb ...
+Unpacking telnetd (0.17-41) ...
+Setting up tcpd (7.6.q-27) ...
+Setting up openbsd-inetd (0.20160825-3) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/inetd.service → /lib/systemd/system/inetd.service.
+Setting up telnetd (0.17-41) ...
+Adding user telnetd to group utmp
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for systemd (237-3ubuntu10.40) ...
+<font color="#8AE234"><b>anta@anta-VirtualBox</b></font>:<font color="#729FCF"><b>~/project</b></font>$ sudo systemctl status inetd
+<font color="#8AE234"><b>●</b></font> inetd.service - Internet superserver
+   Loaded: loaded (/lib/systemd/system/inetd.service; enabled; vendor preset: e
+   Active: <font color="#8AE234"><b>active (running)</b></font> since Thu 2020-05-14 10:56:48 EEST; 23s ago
+     Docs: man:inetd(8)
+ Main PID: 8835 (inetd)
+    Tasks: 1 (limit: 4915)
+   CGroup: /system.slice/inetd.service
+           └─8835 /usr/sbin/inetd
+
+mai 14 10:56:48 anta-VirtualBox systemd[1]: Starting Internet superserver...
+mai 14 10:56:48 anta-VirtualBox systemd[1]: Started Internet superserver.
+</pre>
+
+
+
+<pre><font color="#8AE234"><b>anta@anta-VirtualBox</b></font>:<font color="#729FCF"><b>~/project</b></font>$ telnet 10.0.2.15
+Trying 10.0.2.15...
+Connected to 10.0.2.15.
+Escape character is &apos;^]&apos;.
+Ubuntu 18.04.4 LTS
+anta-VirtualBox login: anta       
+Password: 
+Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 5.3.0-51-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+3 packages can be updated.
+0 updates are security updates.
+
+Your Hardware Enablement Stack (HWE) is supported until April 2023.
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+<font color="#8AE234"><b>anta@anta-VirtualBox</b></font>:<font color="#729FCF"><b>~</b></font>$ telnet 10.0.2.15 80
+Trying 10.0.2.15...
+telnet: Unable to connect to remote host: Connection refused
+</pre>
+
+
+
+<pre>telnet-client 10.0.2.15 23
+Ubuntu 18.04.4 LTS
+anta-VirtualBox login: anta
+Password: 
+Last login: Thu May 14 11:09:43 EEST 2020 from anta-VirtualBox on pts/2
+Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 5.3.0-51-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+12 packages can be updated.
+9 updates are security updates.
+
+Your Hardware Enablement Stack (HWE) is supported until April 2023.
+</pre>
