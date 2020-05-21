@@ -22,3 +22,27 @@ RUN apt-get update
 EXPOSE 5001
 
 CMD echo "Hello from Server"
+
+## PYTHON UDP serveris
+
+FROM python:3
+
+RUN apt-get update && apt-get install -y \
+  python3 \
+  nano \
+
+EXPOSE 5005
+
+CMD echo "Hello, World!"
+
+## PYTHON UDP klients
+
+FROM python:3
+
+RUN apt-get update && apt-get install -y \
+  python3 \
+  nano \
+
+EXPOSE 5005
+
+CMD echo "Hello, World!"
