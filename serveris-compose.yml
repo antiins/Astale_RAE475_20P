@@ -5,17 +5,20 @@ def Main():
         port = 5001
 
         mySocket = socket.socket()
-        mySocket.connect((host,port))
-
-        message = "Sveiki no klienta programmas!"
-
-        print ('Client: send ' + str(message))
-        mySocket.send(message.encode())
-        data = mySocket.recv(1024).decode()
-
-        print ('Client: recv ' + str(data))
-
-        mySocket.close()
+        mySocket.bind((host,port))
+        mySocket.listen(1)
+        conn, addr = mySocket.accept()
+        print ("Server: Connection from " + str(addr))
+        data = conn.recv(1024).decode()
+        if not data:
+         return
+         
+        print ('Server: recv ' + str(data))
+       
+        data = "Sveiki no servera!"
+        print ('Server: send ' + str(data))
+        conn.send(data.encode())
+        conn.close()
  
 if __name__ == '__main__':
     Main()
