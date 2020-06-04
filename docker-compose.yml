@@ -1,0 +1,13 @@
+version: latest
+services:
+server:
+build: telnet/server/
+command: python ./servertelnet.yml
+ports:
+ -1234:1234
+client:
+build: telnet/klients/
+command: python ./clienttelnet.yml
+network_mode: host
+depends_on:
+ -server
