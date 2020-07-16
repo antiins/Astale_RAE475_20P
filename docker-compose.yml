@@ -1,13 +1,14 @@
-version: latest
+version: "3"
+
 services:
-server:
-build: telnet/server/
-command: python ./servertelnet.yml
-ports:
- -1234:1234
-client:
-build: telnet/klients/
-command: python ./clienttelnet.yml
-network_mode: host
-depends_on:
- -server
+ server:
+  build: /home/anta/kurss/serv
+  command: python ./tcpserver.py
+  ports:
+    - 12345:12345
+
+ client:
+  build: /home/anta/kurss/klie
+  command: python ./tcpklients.py
+  network_mode: host
+ 
