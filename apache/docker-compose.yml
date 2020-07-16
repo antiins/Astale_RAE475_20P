@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+ server:
+  build: /home/anta/apache/server
+  command: python3 ./server.py
+
+ client:
+  build: /home/anta/apache/client
+  command: python3 ./klients.py
