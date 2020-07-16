@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+ server:
+  build: /home/anta/ftp/server
+  command: python3 ./server.py
+  tty: true
+  ports:
+    - 1456:1456
+ 
+ client:
+  build: /home/anta/ftp/klients
+  command: python3 ./client.py
+  tty: true
