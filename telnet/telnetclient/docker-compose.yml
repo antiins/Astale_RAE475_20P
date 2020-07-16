@@ -1,0 +1,15 @@
+
+version: "3"
+
+services:
+ server:
+  build: /home/anta/telnetserver
+  command: python ./server.py
+  ports:
+   - 1234:1234
+
+ client:
+  build: /home/anta/telnetclient
+  command: python ./klients.py
+  network_mode: host
+
